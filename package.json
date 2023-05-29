@@ -14,5 +14,8 @@
     "@types/node": "^20.2.5",
     "eslint": "^8.41.0",
     "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "fastify": "^4.17.0"
   }
 }
