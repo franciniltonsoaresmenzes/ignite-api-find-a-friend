@@ -30,11 +30,6 @@ app.get('/pets', async () => {
       energy: 4,
       levelDependency: 'Baixo (precisa de companhia sempre)',
       habitatProperty: 'Ambiente amplo',
-      AdoptionRequirements: {
-        create: {
-          description: 'Defina um requisito|',
-        },
-      },
     },
   })
 
