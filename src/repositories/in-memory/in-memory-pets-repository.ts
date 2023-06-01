@@ -1,9 +1,25 @@
-import { Prisma, Pet } from '@prisma/client'
-import { PetsRepository } from '../pets-repository'
+import { Pet, Prisma } from '@prisma/client'
 import { randomUUID } from 'node:crypto'
+import { PetsRepository } from '../pets-repository'
 
 export class InMemoryPetsRepository implements PetsRepository {
   public items: Pet[] = []
+
+  async filter(data: Partial<Prisma.PetCreateManyOrgsInput>) {
+    const pets = this.items.filter((item) => {
+      for (const key in data) {
+        if (
+          item[key as keyof Prisma.PetCreateManyOrgsInput] !==
+          data[key as keyof Prisma.PetCreateManyOrgsInput]
+        ) {
+          return false
+        }
+      }
+      return true
+    })
+
+    return pets
+  }
 
   async findByCity(city: string) {
     const pets = this.items.filter((item) => item.city === city)
@@ -29,4 +45,34 @@ export class InMemoryPetsRepository implements PetsRepository {
 
     return pet
   }
+}
+
+interface props {
+  id: string
+  name: string
+}
+
+const items: props[] = [
+  {
+    id: '1',
+    name: 'Fran',
+  },
+  {
+    id: '2',
+    name: 'Jõao',
+  },
+]
+
+function main(data: Partial<props>) {
+  const a = items.filter((item) => {
+    for (const key in data) {
+      if (item[key as keyof props] !== data[key as keyof props]) {
+        return false
+      }
+    }
+
+    return true
+  })
+
+  return a
 }
