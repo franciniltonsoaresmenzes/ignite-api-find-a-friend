@@ -16,7 +16,7 @@ describe('Profile e2e', () => {
     const { token } = await createAndAuthenticateOrg(app)
 
     const profileResponse = await request(app.server)
-      .get('/me')
+      .patch('/me')
       .set('Authorization', `Bearer ${token}`)
       .send()
 
