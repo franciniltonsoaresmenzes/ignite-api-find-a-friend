@@ -1,6 +1,5 @@
 import { InMemoryPetsRepository } from '@/repositories/in-memory/in-memory-pets-repository'
 import { beforeEach, describe, expect, it } from 'vitest'
-import { FetchPetsUseCase } from './fetch-pets'
 import { GetPetUseCase } from './get-pet'
 
 let repo: InMemoryPetsRepository
