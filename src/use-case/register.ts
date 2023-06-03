@@ -27,11 +27,12 @@ export class RegisterUsaCase {
     cep,
     whatsap_number,
   }: RegisterUsaCaseRequest): Promise<RegisterUsaCaseResponse> {
+    const password_hash = await hash(password, 6)
     const orgWithSameEmail = await this.orgsRepository.findByEmail(email)
 
-    if (orgWithSameEmail) throw new OrgAlreadyExists()
-
-    const password_hash = await hash(password, 6)
+    if (orgWithSameEmail) {
+      throw new OrgAlreadyExists()
+    }
 
     const org = await this.orgsRepository.create({
       name,
