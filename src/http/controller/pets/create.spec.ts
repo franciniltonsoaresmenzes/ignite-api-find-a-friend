@@ -28,6 +28,16 @@ describe('Create Pet e2e', () => {
         energy: 4,
         levelDependency: 'Baixo (precisa de companhia sempre)',
         habitatProperty: 'Ambiente amplo',
+        description_adoptions: [
+          {
+            description:
+              'Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur.',
+          },
+          {
+            description:
+              'Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur.',
+          },
+        ],
       })
 
     expect(response.statusCode).toEqual(201)
