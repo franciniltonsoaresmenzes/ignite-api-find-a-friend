@@ -45,13 +45,13 @@ describe('Fetch Pets Use Case', () => {
         'Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.',
       city: 'Ourilândia do Norte',
       age: 'filhote',
-      size: 'pequenino',
+      size: 'alto',
       energy: 5,
       levelDependency: 'Baixo (precisa de companhia sempre)',
       habitatProperty: 'Ambiente amplo',
     })
 
-    const { pets } = await sut.execute({ energy: 4 })
+    const { pets } = await sut.execute({ energy: 4, size: 'pequenino' })
 
     expect(pets).toHaveLength(2)
   })
