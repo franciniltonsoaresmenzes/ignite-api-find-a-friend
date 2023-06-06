@@ -70,17 +70,3 @@ const items: props[] = [
     name: 'Jõao',
   },
 ]
-
-function main(data: Partial<props>) {
-  const a = items.filter((item) => {
-    for (const key in data) {
-      if (item[key as keyof props] !== data[key as keyof props]) {
-        return false
-      }
-    }
-
-    return true
-  })
-
-  return a
-}
