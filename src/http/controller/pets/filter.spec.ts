@@ -12,7 +12,7 @@ describe('Filter e2e', () => {
     await app.close()
   })
 
-  it.only('should to be able to filter', async () => {
+  it('should to be able to filter', async () => {
     const { token } = await createAndAuthenticateOrg(app)
 
     await request(app.server)
